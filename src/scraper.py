@@ -192,8 +192,18 @@ class StuckInGmapsException(Exception):
 def get_lang(data):
      return data['lang']
 
+def add_arguments(data, options):
+        options.add_experimental_option(
+                "prefs", {
+                    "profile.managed_default_content_settings.images": 2,
+                    "profile.managed_default_content_settings.stylesheet": 2,
+                    "profile.managed_default_content_settings.fonts": 2,
+                }
+            )
+
 @browser(
-    block_resources=[   '.css', '.jpg', '.jpeg', '.png', '.svg', '.gif'],
+    # block_resources=[   '.css', '.jpg', '.jpeg', '.png', '.svg', '.gif'],
+    add_arguments=add_arguments,
     reuse_driver=True,
     keep_drivers_alive=True, 
     lang=get_lang,
