@@ -196,8 +196,8 @@ def add_arguments(data, options):
         options.add_experimental_option(
                 "prefs", {
                     "profile.managed_default_content_settings.images": 2,
-                    "profile.managed_default_content_settings.stylesheet": 2,
-                    "profile.managed_default_content_settings.fonts": 2,
+                    # "profile.managed_default_content_settings.stylesheet": 2,
+                    # "profile.managed_default_content_settings.fonts": 2,
                 }
             )
 
@@ -272,8 +272,12 @@ def scrape_places(driver: AntiDetectDriver, data):
                         if max_results is not None and len(links) >= max_results:
                             return
 
+                        # TODO: If Proxy is Given Wait for None, and only use wait to Make it Faster, Example Code 
+                        # end_el_wait = bt.Wait.SHORT if driver.about.is_retry else None
+
+                        end_el_wait = bt.Wait.SHORT
                         end_el = driver.get_element_or_none_by_selector(
-                            "p.fontBodyMedium > span > span", bt.Wait.SHORT)
+                            "p.fontBodyMedium > span > span", end_el_wait)
 
                         if end_el is not None:
                             driver.scroll_element(el)
@@ -322,11 +326,16 @@ def scrape_places(driver: AntiDetectDriver, data):
       retry_if_is_error(put_links, [StaleElementReferenceException], STALE_RETRIES, raise_exception=False
                     #   , on_failed_after_retry_exhausted=on_failed_after_retry_exhausted
                       )
+      if driver.about.is_retry:
+          print("This time, Google Maps did not get stuck while scrolling and successfully scrolled to the end.")
+    
     except StuckInGmapsException as e:
       if driver.about.is_last_retry:
           on_failed_after_retry_exhausted(e)
       else:
           raise e
+    
+    
 
 
     places = scrape_place_obj.get()
