@@ -1,4 +1,5 @@
 from botasaurus import *
+from hashlib import md5
 from botasaurus import cl
 from botasaurus.cache import DontCache
 from src.extract_data import extract_data, perform_extract_possible_map_link
@@ -23,9 +24,9 @@ def process_reviews(reviews, convert_to_english):
         # int(user_reviews.replace(",", "").replace(".", "")) if user_reviews else 0
 
         lk = review.get("likes")
+
         processed_review = {
-            "review_id": review.get("review_id"),
-            "reviewer_name": review.get("user_name"),
+            "review_id_hashed": md5(review.get("review_id").encode('utf-8')).hexdigest(),
             "rating": int(review.get("rating")),
             "review_text": review.get("text"),
             "published_at": review.get("relative_date"),
@@ -36,7 +37,6 @@ def process_reviews(reviews, convert_to_english):
             "review_likes_count": 0 if lk == -1 else lk,
             "total_number_of_reviews_by_reviewer": number_of_reviews_by_reviewer,
             "total_number_of_photos_by_reviewer": number_of_photos_by_reviewer,
-            "reviewer_url": review.get("user_url"),
             "is_local_guide": review.get("user_is_local_guide"),
             "review_translated_text": review.get("translated_text"),
             "response_from_owner_translated_text": review.get("translated_response_text"),

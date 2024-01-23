@@ -8,7 +8,7 @@ You can easily run the scraper in Gitpod, a browser-based development environmen
    
    ![Screenshot (148)](https://raw.githubusercontent.com/omkarcloud/google-maps-scraper/master/screenshots/open-in-gitpod.png)
   
-2. Once Signed Up, Open it in Gitpod.   
+2. Once signed up, open it in Gitpod.   
 
    ![gp-continue](https://raw.githubusercontent.com/omkarcloud/google-maps-scraper/master/screenshots/gp-continue.png)
 
@@ -17,7 +17,7 @@ You can easily run the scraper in Gitpod, a browser-based development environmen
    python main.py
    ```
   
-4. Once the scraper has finished running, download the leads from the `output` folder.
+4. Once the scraper has finished running, download the data from the `output` folder.
 
    ![Screenshot (219)](https://raw.githubusercontent.com/omkarcloud/google-maps-scraper/master/screenshots/download-leads.png)
 
@@ -25,23 +25,19 @@ Just like with a local setup, you can configure the scraper in Gitpod by editing
 
 Also, it's important to regularly interact with the Gitpod environment, such as clicking within it every 30 minutes, to keep the machine active and prevent automatic shutdown. 
 
-If you don't want to click every 30 minutes, then we encourage to install Python on PC and run the scraper locally. 
+If you don't want to click every 30 minutes, then we encourage you to install Python on your PC and run the scraper locally. 
 
-
-### ❓ Does running Scraper on Bigger Machine scrapes Data Faster?
+### ❓ Does running Scraper on a Bigger Machine scrape Data Faster?
 
 No, the scraper is very light on resources, so there won't be any noticeable difference whether you run it on an Intel Pentium processor with 4GB of RAM or an Intel i7 processor with 16GB of RAM.
-   
-<!-- 
-But if you are scraping reviews (which user's don't need to), you should use a bigger machine because scraping reviews runs parallely. The more the Ram the faster will run.
- -->
 
 ### ❓ How to Scrape Reviews?
-Set the `scrape_reviews` argument to true.
+
+You can set the `scrape_reviews` argument to true.
 
 ```python
 queries = [
-   "web developers in bangalore"
+   "web developers in Bangalore"
 ]
 
 Gmaps.places(queries, scrape_reviews=True, max=5)
@@ -50,12 +46,12 @@ Gmaps.places(queries, scrape_reviews=True, max=5)
 You can also configure the following options:
 - reviews_max (Defaults: 20)
 - reviews_sort (Defaults: Newest)
-   - Options are Most Relevant, Newest,  Highest Rating, Lowest Rating
+- Options are Most Relevant, Newest, Highest Rating, Lowest Rating
 
 Here is an example that scrapes the Lowest Rated, 100 Reviews.
 ```python
 queries = [
-   "web developers in bangalore"
+   "web developers in Bangalore"
 ]
 
 Gmaps.places(queries, scrape_reviews=True, reviews_max=100, reviews_sort=Gmaps.LOWEST_RATING, max=5)
@@ -65,29 +61,19 @@ To scrape all reviews without any limit, you can set `reviews_max` to `Gmaps.ALL
 
 ```python
 queries = [
-   "web developers in bangalore"
+   "web developers in Bangalore"
 ]
 
 Gmaps.places(queries, scrape_reviews=True, reviews_max=Gmaps.ALL_REVIEWS, max=5)
 ```
 
-Please understand that some places may have thousands of reviews, so scraping all reviews may take a long time. 
+Some places may have thousands of reviews, so scraping all reviews may take a long time. 
 
-It's best to limit the number of reviews to scrape to a number like 100 or 1000.
+So, it's best to limit the number of reviews to scrape to a number like 100 or 1000.
 
-**Important**: If you are a Data Scientist focused on scraping reviews for Data Analysis, we encourage you to use our [Google Maps Reviews Scraper](https://github.com/omkarcloud/google-maps-reviews-scraper), as it is specially tailored for Data Scientists.
+Please note that for privacy concerns, reviewer's personal information such as name, and review profile link are not scraped. Only the review text, rating, response, etc., are scraped.
 
-
-<!-- ### ❓ How many Keywords Can It Scrape per Hour?
-
-- If you have 4 GB of free RAM then, n Keywords per Hour
-- If you have 8 GB of free RAM then, n Keywords per Hour
-
-Also, you don't need to worry about the scraping speed because even if you run it for an hour with 4 GB free RAM, you can scrape thousands of leads.
-
-Reaching out to thousands of leads can easily keep you busy for 2 weeks.
-
-So, simply run the scraper while you are doing other things on your PC, and you will have thousands of leads in no time. -->
+Also, to allow you to uniquely identify reviews and at the same time protect the reviewer's privacy, we hash the reviewer's id. 
 
 ### ❓ What are Popular Snippets for Data Scientists?
 
@@ -119,7 +105,7 @@ For example, if you want to scrape results in Spanish, you can do so by passing 
 
 ```python
 queries = [
-   "web developers in bangalore"
+   "web developers in Bangalore"
 ]
 Gmaps.places(queries, lang=Gmaps.Lang.Spanish)
 ```
@@ -129,9 +115,9 @@ All Google Maps languages are supported. Some popular languages you may want to 
 - Gmaps.Lang.English
 - Gmaps.Lang.Chinese
 - Gmaps.Lang.Japanese
-- And of course Gmaps.Lang.Hindi 😊
+- And of course, Gmaps.Lang.Hindi 😊
 
-See the list of all supported languages [here](https://github.com/omkarcloud/google-maps-scraper/blob/master/languages.md)
+See the list of all supported languages [here](https://github.com/omkarcloud/google-maps-scraper/blob/master/languages.md).
 
 ### ❓ I have Google Map Places Links, How to Scrape Links?
 
@@ -153,7 +139,7 @@ Provide the coordinates to the scraper as follows:
 
 ```python
 queries = [
-   "web developers in bangalore"
+   "web developers in Bangalore"
 ]
 
 Gmaps.places(queries, geo_coordinates="12.900490, 77.571466", max=5)
@@ -174,19 +160,12 @@ For example, to scrape places in Bangalore at zoom level 16:
 
 ```python
 queries = [
-   "web developers in bangalore"
+   "web developers in Bangalore"
 ]
 
 Gmaps.places(queries, geo_coordinates="12.900490, 77.571466", zoom=16, max=5)
 ```
 
-### ❓ Why Do You Randomize Cities for Each User?
-
-We randomize cities for each user to increase the chances of sales. 
-
-If multiple users are targeting the same leads in the same cities, it reduces the opportunity for each. 
-
-Randomizing cities spreads them among our users, giving each user a better chance to make a sale.
 
 ### ❓ When setting the Lang Attribute to Hindi/Japanese/Chinese, the characters are in English instead of the specified language. How to transform characters to the specified language?
 
@@ -209,23 +188,13 @@ Also, in case you are unable to view characters properly in Excel, then the easi
 
 ### ❓ Do I Need Proxies?
 
-Through experimentation, we have found a scraping speed that doesn't trigger Google Maps' detection systems, so you do not need to use proxies for scraping Google Maps.
-
-<!-- ### ❓ The Turkish Characters Aren't Rendering Properly in Excel?
-
-This issue occurs only in Excel, which does not render Turkish characters properly. The easiest solution is to upload the CSV to Google Sheets, which should render the characters correctly.
-
-![turkish-character-fix](https://github.com/omkarcloud/google-maps-scraper/assets/53407137/1362b910-7102-4c74-9231-c18cb4504161)
-
-Alternatively, setting the `lang` attribute to `Gmaps.Lang.English` will give results in English. -->
-
+No, you do not need to use proxies with this tool.
 
 ### ❓ Need More Help or Have Additional Questions?
 
-For further help, ask your question in GitHub Discussions. We'll be happy to help you out.
+For further help, contact us on WhatsApp. We'll be happy to help you out.
 
-[![ask github](https://raw.githubusercontent.com/omkarcloud/google-maps-scraper/master/screenshots/ask-on-github.png)](https://github.com/omkarcloud/google-maps-scraper/discussions)
-
+[![Contact Us on WhatsApp about Amazon Scraper](https://raw.githubusercontent.com/omkarcloud/assets/master/images/whatsapp-us.png)](https://api.whatsapp.com/send?phone=918295042963&text=Hi,%20I%20would%20like%20to%20learn%20more%20about%20your%20products.)
 
 ## Love It? [Star It ⭐!](https://github.com/omkarcloud/google-maps-scraper)
 
