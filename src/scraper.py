@@ -26,7 +26,7 @@ def process_reviews(reviews, convert_to_english):
         lk = review.get("likes")
 
         processed_review = {
-            "review_id_hashed": md5(review.get("review_id").encode('utf-8')).hexdigest(),
+            "review_id_hash": md5(review.get("review_id").encode('utf-8')).hexdigest(),
             "rating": int(review.get("rating")),
             "review_text": review.get("text"),
             "published_at": review.get("relative_date"),
