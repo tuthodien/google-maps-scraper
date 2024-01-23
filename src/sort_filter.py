@@ -75,8 +75,12 @@ def filter_places(ls, filter_data):
         phone = i.get("phone")
         main_category = i.get("main_category")
 
-        if category_in and (not list_contains_string(category_in, main_category)):
-            return False
+        if category_in :
+            if not main_category:
+                return False
+
+            if (not list_contains_string(category_in, main_category)):
+                return False
 
         if min_rating is not None and (rating == '' or rating is None or rating < min_rating):
             return False
