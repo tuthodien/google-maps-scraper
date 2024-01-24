@@ -326,7 +326,8 @@ def scrape_places(driver: AntiDetectDriver, data):
       retry_if_is_error(put_links, [StaleElementReferenceException], STALE_RETRIES, raise_exception=False
                     #   , on_failed_after_retry_exhausted=on_failed_after_retry_exhausted
                       )
-      if driver.about.is_retry:
+    # todo remove check later
+      if hasattr(driver.about, 'is_retry') and driver.about.is_retry:
           print("This time, Google Maps did not get stuck while scrolling and successfully scrolled to the end.")
     
     except StuckInGmapsException as e:

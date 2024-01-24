@@ -2,7 +2,7 @@
 
 ## 1. Reporting a Vulnerability
 
-We take the privacy and security of the Google Maps Scraper Project very seriously. If you have discovered a security vulnerability or have concerns about the project's security, we appreciate your assistance in responsibly disclosing it to us.
+We take the privacy and security of the Google Maps Scraper Project very seriously. If you have discovered a security vulnerability or have concerns about the project, we appreciate your assistance in responsibly disclosing it to us.
 
 To report a security issue or express a concern, please email Chetan Jain at `chetan@omkar.cloud`. We strive to promptly respond to your concerns.
 

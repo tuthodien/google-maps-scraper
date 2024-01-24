@@ -60,6 +60,8 @@ Google Maps Scraper helps you find Business Profiles from Google Maps.
 
 3. Scrape cities across countries.
 
+4. Scrape reviews while ensuring the privacy of reviewers is maintained.
+
 In the next 5 minutes, you'll extract **120 Search Results** from Google Maps.
 
 ![Google Maps Data Scraper CSV Result](https://raw.githubusercontent.com/omkarcloud/google-maps-scraper/master/screenshots/gmap_result.png)
@@ -392,10 +394,17 @@ Also, if hotel and restaurant owners are your primary target audience, consider 
 Our TripAdvisor Scraper allows you to easily gather contact information and descriptions from TripAdvisor. 
 
 See our [Tripadvisor Scraper here](https://github.com/omkarcloud/tripadvisor-scraper).
+Here's a revised version of your text with improved sentence flow and grammar:
 
 ### ❓ How Does It Work?
 
-For web scrapers interested in understanding how it works, you can read [this tutorial](https://www.omkar.cloud/botasaurus/docs/google-maps-scraping-tutorial/), where we walk you through the creation of a simplified version of a Google Maps Scraper.
+Below are some of the smart features:
+
+- Instead of visiting each search result through a browser, which can result in up to 10,000 requests for just 100 results, we utilize HTTP requests. This approach leads to only 100 requests for 100 results, saving time and bandwidth while also placing a minimal load on Google's servers.
+
+- Rather than first scrolling and then visiting search results, our system scrolls and retrieves results simultaneously in parallel. This feature would have been challenging to implement using only Python Threads. However, thanks to the Botasaurus Async Queue Feature, it was really simple.
+
+For web scrapers interested in understanding how this works in more detail, you can read [this tutorial](https://www.omkar.cloud/botasaurus/docs/google-maps-scraping-tutorial/). Here, we guide you through creating a simplified version of a Google Maps Scraper.
 
 ### ❓ Your Scraper is Really Robust. I Tried Many Scrapers, Most Don't Work. How Did You Build It?
 

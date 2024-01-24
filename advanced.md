@@ -71,9 +71,11 @@ Some places may have thousands of reviews, so scraping all reviews may take a lo
 
 So, it's best to limit the number of reviews to scrape to a number like 100 or 1000.
 
-Please note that for privacy concerns, reviewer's personal information such as name, and review profile link are not scraped. Only the review text, rating, response, etc., are scraped.
+Please note that due to privacy concerns, we do not scrape personally identifiable information of reviewers, such as names, profile photos, and review links. We only scrape the review text, rating, owner response, and similar non-personally identifiable data.
 
-Also, to allow you to uniquely identify reviews and at the same time protect the reviewer's privacy, we hash the reviewer's id. 
+Furthermore, to ensure the unique identification of reviews while protecting the privacy of the reviewers, we hash the reviewer's ID.
+
+> Disclaimer: User Reviews should only be used for ethical and legal purposes, in compliance with local and international privacy laws.
 
 ### ❓ What are Popular Snippets for Data Scientists?
 
