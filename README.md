@@ -75,7 +75,7 @@ If you'd like to see a demo before using the tool, I encourage you to watch this
 
 ## 📦 Requirements
 
-To use the tool, you must have Node.js 18+ and Python installed on your PC.
+To use the tool, you must have Node.js 16+ and Python installed on your PC.
 
 ## 🚀 Getting Started
 
@@ -99,17 +99,7 @@ Once the scraping process is complete, you will find the search results in the `
 
 ![Google Maps Data Scraper CSV Result](https://raw.githubusercontent.com/omkarcloud/google-maps-scraper/master/screenshots/gmap_result.png)
 
-
-Note: 
-1. If you're encountering errors on your Mac, they're likely caused by an old version of Node.js. To check your current Node.js version, run `node -v` in your terminal. If your version is lower than 18, please upgrade to the latest version of Node.js. After upgrading, execute the following command:
-
-```sh
-python -m javascript --install proxy-chain
-```
-
-This command might display some node errors, but it will also provide steps to resolve them. Resolve them, and you can easily use the tool.
-
-2. If you don't have Node.js 18+ and Python installed or you are still facing errors, follow this Simple FAQ [here](https://github.com/omkarcloud/google-maps-scraper/blob/master/advanced.md#-i-dont-have-python-or-im-facing-errors-when-setting-up-the-scraper-on-my-pc-how-to-solve-it), and you will have your search results in the next 5 Minutes
+*Note: If you don't have Node.js 16+ and Python installed or you are facing errors, follow this Simple FAQ [here](https://github.com/omkarcloud/google-maps-scraper/blob/master/advanced.md#-i-dont-have-python-or-im-facing-errors-when-setting-up-the-scraper-on-my-pc-how-to-solve-it), and you will have your search results in the next 5 Minutes*
 
 ## 🤔 Questions
 
