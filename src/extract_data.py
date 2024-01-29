@@ -91,6 +91,9 @@ def get_address(data):
 def get_website(data):
     return clean_link(safe_get(data, 6, 7, 0))
 
+def get_phones(data):
+    return clean_link(safe_get(data, 6, 178, 0, 3))
+
 def get_main_category(data):
     return safe_get(data, 6, 13, 0)
 
@@ -170,6 +173,7 @@ def extract_data(input_str, link):
     reviews = get_reviews(data)
     address = get_address(data)
     website = get_website(data)
+    phones = get_phones(data)
     main_category = get_main_category(data)
     return {
         'place_id': place_id,
@@ -180,5 +184,6 @@ def extract_data(input_str, link):
         'rating': rating,
         'reviews': reviews,
         'address': address,
-        'website':website
+        'website':website,
+        'phones': phones,
     }

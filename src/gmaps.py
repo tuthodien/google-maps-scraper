@@ -168,12 +168,12 @@ def determine_fields(fields, should_scrape_socials, scrape_reviews):
             fields.remove(Fields.DETAILED_REVIEWS)
           
     # Check if should_scrape_socials is True and there are no occurrences of any ALL_SOCIAL_FIELDS in fields
-      if should_scrape_socials:
-        if not any(field in fields for field in ALL_SOCIAL_FIELDS):
-            fields.extend(DEFAULT_SOCIAL_FIELDS)
-      else:
-        # Remove any occurrences of ALL_SOCIAL_FIELDS from fields
-        fields = [field for field in fields if field not in ALL_SOCIAL_FIELDS]
+    #   if should_scrape_socials:
+    #     if not any(field in fields for field in ALL_SOCIAL_FIELDS):
+    #         fields.extend(DEFAULT_SOCIAL_FIELDS)
+    #   else:
+    #     # Remove any occurrences of ALL_SOCIAL_FIELDS from fields
+    #     fields = [field for field in fields if field not in ALL_SOCIAL_FIELDS]
     #   print(fields)
 
       ls = []
@@ -341,7 +341,7 @@ class Gmaps:
         result_item = process_result(min_reviews, max_reviews, category_in, has_website, has_phone, min_rating, max_rating, sort, key, scrape_reviews, reviews_max, reviews_sort, fields, lang, should_scrape_socials, convert_to_english,use_cache,places_obj)
 
         result.append(result_item)
-      
+        
       all_places = sort_places(merge_places(result), sort)
       write_output("all", all_places, fields)
 

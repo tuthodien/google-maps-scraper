@@ -92,7 +92,7 @@ def set_cookies(ck):
 
     close_on_crash=True,
     output=None,
-    use_stealth=True, 
+    # use_stealth=True, 
 
     # TODO: IMPLEMENT AND UNCOMMENT
     max_retry=5,
@@ -113,7 +113,7 @@ def scrape_place(requests: AntiDetectRequests, link):
             # Extracting data from the APP_INITIALIZATION_STATE
             data = extract_data(app_initialization_state, link)
             # data['link'] = link
-
+           
             data['is_spending_on_ads'] = False
             cleaned = data
             
@@ -149,7 +149,7 @@ def merge_sponsored_links(places, sponsored_links):
     reuse_driver=True,
     keep_drivers_alive=True, 
     close_on_crash=True,
-    headless=True,
+    # headless=True,
     output=None,
 )
 def scrape_places_by_links(driver: AntiDetectDriver, data):
@@ -203,13 +203,13 @@ def add_arguments(data, options):
 
 @browser(
     # block_resources=[   '.css', '.jpg', '.jpeg', '.png', '.svg', '.gif'],
-    add_arguments=add_arguments,
+    # add_arguments=add_arguments,
     reuse_driver=True,
     keep_drivers_alive=True, 
     lang=get_lang,
     close_on_crash=True,
     max_retry = 3,
-    headless=True,
+    # headless=True,
     output=None,
 )
 def scrape_places(driver: AntiDetectDriver, data):

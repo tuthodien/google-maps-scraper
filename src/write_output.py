@@ -172,9 +172,9 @@ def transform_places(places, fields):
                 # transformed_place["emails_with_number_of_sources"] = "\n".join(emails_with_sources)
 
             elif field == Fields.PHONES:
-                phones = place.get("phones", [])
+                phones = place.get("phones", None)
                 # phones_with_sources = [f"{phone['value']}: {len(phone['sources'])}" for phone in place.get("phones", [])]
-                transformed_place[Fields.PHONES] = ", ".join(phones)
+                transformed_place[Fields.PHONES] = phones
                 # transformed_place["phones_with_number_of_sources"] = "\n".join(phones_with_sources)
 
             elif field == Fields.CATEGORIES:

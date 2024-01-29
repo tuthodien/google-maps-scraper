@@ -67,6 +67,7 @@ DEFAULT_FIELDS_WITHOUT_SOCIAL_DATA = [
     Fields.RATING, 
     Fields.REVIEWS, 
     Fields.ADDRESS, 
+    Fields.PHONES,
 ]
 
 DEFAULT_SOCIAL_FIELDS = [
